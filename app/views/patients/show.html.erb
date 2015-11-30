@@ -1,0 +1,31 @@
+<%= render '/shared/nav' %>
+
+<div class="container-fluid">
+
+	<div class="row">
+		<div class="col-md-2">
+			<%= render 'patient_nav' %>
+		</div>
+
+		<div class="col-md-10">
+			<h2>Summary</h2>
+
+			<hr>
+
+			<h4>Current conditions <%= link_to 'New Condition', patient_path, :class => "btn btn-default" %></h4>
+			<p>Diabetes</p>
+
+			<hr>
+
+			<h4>Allergies <%= link_to 'New Allergy', patient_path, :class => "btn btn-default" %></h4>
+
+			<hr>
+
+			<h4>Measurements <%= link_to 'New Measurement', patient_path, :class => "btn btn-default" %></h4>
+			<p>Blood Pressure <span class="label label-danger">High</span></p>
+			<p>Weight <span class="label label-warning">High</span></p>
+
+		</div>
+	</div>
+
+</div>

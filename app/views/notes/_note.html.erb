@@ -1,0 +1,18 @@
+<hr>
+<h4 class="note">
+	<strong>Visit <%= @count %><% @count = @count - 1 %></strong> 
+
+	on <%= note.created_at.strftime("%d %b %Y") %>&nbsp;&nbsp;
+	<div class="pull-right">
+		<%= link_to '', edit_patient_note_path(@patient, note),
+	            :class => "glyphicon glyphicon-pencil" %>&nbsp;
+		
+		<%= link_to '', patient_note_path(@patient, note),
+	            :class => "glyphicon glyphicon-trash",
+	            :method => :delete %>
+    </div>	
+</h4>
+<div class="indent">
+	<%= simple_format(note.body) %>
+</div>
+

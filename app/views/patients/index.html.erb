@@ -1,0 +1,45 @@
+<%= render '/shared/nav' %>
+
+
+<div class="container">
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="page-header">
+			  	<h1>
+			  		My clients	
+			  		<div class="pull-right form-inline">
+			  			<%= link_to 'New client', new_patient_path, :class => "btn btn-primary" %>
+					    
+					    <div class="input-group">
+					    <%= form_tag(patients_path, :method => "get", class: "", id: "search-form") do %>
+							<%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Find a client" %>
+							<span class="input-group-btn">
+								<button name="nil" class="btn btn-default" type="submit">Search</button>
+							</span>
+						<% end %>
+					    </div>
+			  		</div>
+			  	</h1>
+			</div>
+		</div>
+	</div>		
+
+	<div class="row">
+
+		<div class="col-md-12">
+			<table class="table table-hover">
+	    		<% @patients.each do |patient| %>
+					<tr>
+						<td><h4><%= link_to patient.firstname + " " + patient.lastname, patient_notes_path(patient) %></h4></td>
+						<td><h4><small><%= patient.notes.count %> visits</small></h4></td>
+						<td><h4><small><%= patient.phone %></small></h4></td>
+						<td><h4><small><%= patient.email %></small></h4></td>
+					</tr>
+	    		<% end %>
+			</table>
+	    </div>
+	</div>
+
+</div>
+

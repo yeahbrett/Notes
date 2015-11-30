@@ -1,0 +1,23 @@
+<%= form_for([@patient, @patient.notes.build]) do |f| %>
+  <% if @patient.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@patient.errors.count, "error") %> prohibited this patient from being saved:</h2>
+
+      <ul>
+      <% @patient.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <div class="form-group">
+    <%= f.label :body, :class => "sr-only" %>
+    <%= f.text_area :body, :class => "form-control note-field input-lg", :placeholder => "Write a new note ...", autofocus: true,  :rows => "10" %>  
+  </div>   
+
+  <div class="actions">
+    <%= f.submit "Done", :class => "btn btn-primary" %>
+    <%= link_to "Cancel", :back, :class => "btn btn-default" %>
+  </div>
+<% end %>

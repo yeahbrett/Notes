@@ -1,0 +1,42 @@
+<%= render '/shared/nav' %>
+
+<div class="container">
+
+	<div class="row">
+
+		<div class="col-md-12">
+
+			<div class="page-header">
+			  	<h1>
+			  		<%= @patient.firstname %> <%= @patient.lastname %>	
+			  		<div class="pull-right">
+			  			<%= link_to 'New note', new_patient_note_path, :class => "btn btn-primary" %>
+			  			
+			  		</div>
+			  	</h1>
+			  	<h4>
+			  		<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span> <%= @patient.phone %>&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span> <%= @patient.email %>&nbsp;&nbsp;&nbsp;<%= link_to 'Edit', edit_patient_path(@patient) %>
+				</h4>
+			</div>
+
+			<%= render @patient.notes.order('created_at DESC') %>
+
+		</div>
+	</div>
+
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Note for <%= @patient.firstname %> <%= @patient.lastname %></h4>
+      </div>
+      <div class="modal-body">
+        <%= render '/notes/form' %>
+      </div>
+    </div>
+  </div>
+</div>
