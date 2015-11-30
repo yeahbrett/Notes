@@ -15,7 +15,7 @@ class NotesController < ApplicationController
 
   # GET /notes/new
   def new
-    @note = current_user.notes.build
+    @note = @patient.notes.build
   end
 
   # GET /notes/1/edit

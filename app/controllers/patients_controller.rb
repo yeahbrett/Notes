@@ -5,9 +5,9 @@ class PatientsController < ApplicationController
   # GET /patients.json
   def index
     if params[:search]
-      @patients = Patient.search(params[:search]).order('firstname ASC')
+      @patients = current_user.patients.search(params[:search]).order('firstname ASC')
     else
-      @patients = Patient.all.order('firstname ASC')
+      @patients = current_user.patients.all.order('firstname ASC')
     end
   end
 
@@ -18,7 +18,7 @@ class PatientsController < ApplicationController
 
   # GET /patients/new
   def new
-    @patient = Patient.new
+    @patient = current_user.patients.build
   end
 
   # GET /patients/1/edit
@@ -28,7 +28,7 @@ class PatientsController < ApplicationController
   # POST /patients
   # POST /patients.json
   def create
-    @patient = Patient.new(patient_params)
+    @patient = current_user.patients.build(patient_params)
 
     respond_to do |format|
       if @patient.save
