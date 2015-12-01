@@ -11,7 +11,6 @@ html {
 }
 body {
   margin: 0;
-  background: #f8f5f0;
 }
 article,
 aside,
@@ -1421,7 +1420,7 @@ a.bg-danger:focus {
 }
 .page-header h4 {
   padding-top: 10px;
-  color: #989184;
+  color: #aaa;
 }
 ul,
 ol {
@@ -4546,8 +4545,8 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
   }
 }
 .navbar-default {
-  border-color: #e7e7e7;
-  padding: 20px;
+  border-bottom: 1px solid #e7e7e7;
+  padding: 10px;
 }
 .navbar-default .navbar-brand {
   color: #276dff;
@@ -6812,6 +6811,7 @@ button.close {
   padding: 20px;
   text-align: center;
   width: 100%;
+  background: #f8f5f0;
 }
 
 .nav-strip h3 {
@@ -6843,6 +6843,9 @@ p.note {
   border-color: #fff;
   -webkit-box-shadow: none;
           box-shadow: none;
+}
+.visit-date {
+  color: #aaa;
 }
 
 border-radius: 4px;

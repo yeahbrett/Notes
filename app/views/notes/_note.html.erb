@@ -1,8 +1,9 @@
 <hr>
 <h4 class="note">
 	<strong>Visit <%= @count %><% @count = @count - 1 %></strong> 
-
-	on <%= note.created_at.strftime("%d %b %Y") %>&nbsp;&nbsp;
+	<span class="visit-date">
+		on <%= note.created_at.strftime("%d %b %Y") %>
+	</span>
 	<div class="pull-right">
 		<%= link_to '', edit_patient_note_path(@patient, note),
 	            :class => "glyphicon glyphicon-pencil" %>&nbsp;
